@@ -3,10 +3,10 @@ package config
 import (
 	"flag"
 	"github.com/go-ini/ini"
-	"log"
 )
 
 type Config struct {
+	HttpPort string  `ini:"http_port"`
 	Shopify
 	Fetchx
 	FilePath
@@ -14,6 +14,7 @@ type Config struct {
 
 type FilePath struct {
 	LogPath string `ini:"log_path"`
+	DbFilePath string  `ini:"db_file_path"`
 }
 
 type Shopify struct {
@@ -37,7 +38,4 @@ func Init() {
 	cfg, _ := ini.Load(*configFile)
 
 	cfg.MapTo(AppConfig)
-
-	log.Printf("%v", AppConfig)
-
 }

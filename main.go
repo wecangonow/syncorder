@@ -2,19 +2,20 @@ package main
 
 import (
 	"syncorder/config"
-
 	"syncorder/httpserver"
-	"syncorder/logger"
+
+	"syncorder/task"
 )
 
 func init() {
 	config.Init()
 }
 
+
+
 func main() {
 
-	logger := logger.GetInstance()
-	logger.Println("Start listening on port 8080")
-
+	task.Start()
 	httpserver.Start()
+
 }

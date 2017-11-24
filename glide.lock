@@ -1,8 +1,12 @@
-hash: fe7fae2d5a70752133f70797f23995f2bfc82134e4877f3446d1ac1e4b7dd1ca
-updated: 2017-11-23T18:00:00.755461173+08:00
+hash: 844041f641030f2b317ac86d0bb7ddba75c4665307e7d4a5eb9858c31b37d782
+updated: 2017-11-24T14:25:29.650784181+08:00
 imports:
 - name: github.com/go-ini/ini
   version: 32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a
+- name: github.com/jcelliott/lumber
+  version: dd349441af25132d146d7095c6693a15431fc9b1
+- name: github.com/nanobox-io/golang-scribble
+  version: ced58d671850da57ce8c11315424513b608083d7
 - name: github.com/op/go-logging
   version: b2cb9fa56473e98db8caba80237377e83fe44db5
 testImports: []

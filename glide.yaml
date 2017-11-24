@@ -4,3 +4,5 @@ import:
   version: v1.32.0
 - package: github.com/op/go-logging
   version: v1
+- package: github.com/nanobox-io/golang-scribble
+- package: github.com/jcelliott/lumber

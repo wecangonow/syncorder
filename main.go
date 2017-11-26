@@ -11,8 +11,6 @@ func init() {
 	config.Init()
 }
 
-
-
 func main() {
 
 	task.Start()

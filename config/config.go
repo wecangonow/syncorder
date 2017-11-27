@@ -2,12 +2,14 @@ package config
 
 import (
 	"flag"
+	"time"
 
 	"github.com/go-ini/ini"
 )
 
 type Config struct {
-	HttpPort string `ini:"http_port"`
+	HttpPort    string        `ini:"http_port"`
+	TickSeconds time.Duration `ini:"tick_seconds"`
 	Shopify
 	Fetchx
 	FilePath
@@ -26,6 +28,8 @@ type Shopify struct {
 }
 type Fetchx struct {
 	Authorization string `ini:"authorization"`
+	TrackingURL   string `ini:"tracking_url"`
+	ApiUrl        string `ini:"api_basic_url"`
 }
 
 var (

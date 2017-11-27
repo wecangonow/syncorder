@@ -3,7 +3,6 @@ package main
 import (
 	"syncorder/config"
 	"syncorder/httpserver"
-
 	"syncorder/task"
 )
 

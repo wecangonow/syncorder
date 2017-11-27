@@ -8,7 +8,8 @@ import (
 	"strings"
 )
 
-func DoRequest(method string, url string, data string, authorization string) {
+// PUT POST GET
+func DoRequest(method string, url string, data string, authorization string) (string, int) {
 	fmt.Println(" Request url :  ", url)
 	client := &http.Client{}
 	request, err := http.NewRequest(method, url, strings.NewReader(data))
@@ -23,9 +24,9 @@ func DoRequest(method string, url string, data string, authorization string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("The calculated length is:", len(string(contents)), "for the url:", url)
 	fmt.Println("StatusCode: ", response.StatusCode)
 	fmt.Println(string(contents))
+	return string(contents), response.StatusCode
 }
 
 func DoPost(url string, data string) {

@@ -29,7 +29,7 @@ func createLogger(fname string) *Logger {
 
 	return &Logger{
 		filename: fname,
-		Logger:   log.New(file, "My app Name ", log.Lshortfile),
+		Logger:   log.New(file, "syncorder ", log.Lshortfile),
 	}
 
 }

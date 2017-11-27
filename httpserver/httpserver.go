@@ -4,13 +4,13 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
-	DB "syncorder/database"
+	"encoding/json"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"syncorder/config"
-	"io/ioutil"
+	DB "syncorder/database"
 	"time"
-	"encoding/json"
 )
 
 type OrderInfo struct {
@@ -238,7 +238,7 @@ func orderCreate(rw http.ResponseWriter, r *http.Request) {
 			log.Fatal("hmac256 verified failed")
 		}
 
-		rw.Write([]byte(config.AppConfig.Fetchx.Authorization))
+		rw.Write([]byte("webhook received successfully"))
 
 	} else {
 		rw.WriteHeader(http.StatusMethodNotAllowed)
@@ -257,7 +257,7 @@ func ComputeHmac256(message string, secret string) string {
 func Start() {
 	log.Println("Start listening on port " + config.AppConfig.HttpPort)
 	http.HandleFunc("/orderCreate", orderCreate)
-	err := http.ListenAndServe(":" + config.AppConfig.HttpPort, nil)
+	err := http.ListenAndServe(":"+config.AppConfig.HttpPort, nil)
 
 	if err != nil {
 		log.Println(err.Error())
@@ -276,4 +276,3 @@ func writeDB() {
 	//
 
 }
-
